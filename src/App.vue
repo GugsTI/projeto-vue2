@@ -1,47 +1,82 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+  import { ref } from 'vue';
+
+  const nome = (ref(prompt("Informe seu nome:")));
+  const idade = (ref(prompt("Informe sua idade:")));
+  const contador = ref(0);
+
+  function incrementar() {
+    contador.value++;
+  }
+
+  function decrementar() {
+    if (contador.value > 0) {
+      contador.value--;
+    }
+  }
+
+  function reiniciar() {
+    contador.value = 0;
+  }
+
+  function inverterTextoEmMaiusculo(texto) {
+    return texto.split('').reverse().join('').toUpperCase();
+  }
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div class="info">
+    <h2>Informações</h2>
+    <p>Nome: {{ nome }} </p>
+    <p>Idade:{{ idade }} anos</p>
+    <hr />
+    <p>
+      Para completar 50 anos faltam: {{ 50 - idade }} anos
+    </p>
+    <p>O nome tem {{ nome.length }}  caracteres</p>
+    <p>
+      O nome invertido em maiúscula é:{{
+      inverterTextoEmMaiusculo(nome) }} 
+    </p>
+  </div>
+  <div class="contador">
+    <h2>Contador</h2>
+    <p>Valor: {{ contador }}</p>
+    <button @click="incrementar">Incrementar</button>
+    <button @click="decrementar">Decrementar</button>
+    <button @click="reiniciar">Reiniciar</button>
+    <div
+    >
+      <p v-if="contador > 10">Valor maior que 10</p>
+      <p v-else>Valor menor que 10</p>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
+.info{
+  background-color: #000000;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+  border-radius: 50px;
+  width: 280%;
+  height: 400px;
+  margin-bottom: 100%;
+margin-left: -30%;}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+.contador{
+  margin-top: 100%;
+  background-color: #000000;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+  border-radius: 50px;
+  width: 280%;
+  height: 400px;
+  margin-bottom: 100%;
+margin-left: -100%;}
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
+  
 </style>
