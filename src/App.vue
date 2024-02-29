@@ -39,12 +39,13 @@
       inverterTextoEmMaiusculo(nome) }} 
     </p>
   </div>
+  <br>
   <div class="contador">
     <h2>Contador</h2>
     <p>Valor: {{ contador }}</p>
-    <button @click="incrementar">Incrementar</button>
-    <button @click="decrementar">Decrementar</button>
-    <button @click="reiniciar">Reiniciar</button>
+    <button class="botao" @click="incrementar">Incrementar</button>
+    <button class="botao" @click="decrementar">Decrementar</button>
+    <button class="botao" @click="reiniciar">Reiniciar</button>
     <div
     >
       <p v-if="contador > 10">Valor maior que 10</p>
@@ -61,9 +62,9 @@
   color: white;
   border-radius: 50px;
   width: 280%;
-  height: 400px;
+  height: 500px;
   margin-bottom: 100%;
-margin-left: -30%;}
+margin-left: -200px;}
 
 .contador{
   margin-top: 100%;
@@ -74,8 +75,17 @@ margin-left: -30%;}
   border-radius: 50px;
   width: 280%;
   height: 400px;
-  margin-bottom: 100%;
-margin-left: -100%;}
+  margin-top: -90%;
+  margin-left: -200px;}
+
+  .botao{
+    border-radius: 30px;
+    width: 100px;
+
+    
+
+
+  }
 
 
   
