@@ -38,8 +38,8 @@
       O nome invertido em maiúscula é:{{
       inverterTextoEmMaiusculo(nome) }} 
     </p>
-    <p class="edit">
-      <a class="cont" href="https://gugscontador.surge.sh/">contador1.0</a>
+    <p>
+      <button class="botao1"><a href="https://gugscontador.surge.sh/"></a>Contador1.0</button>
     </p>
   </div>
   <br>
@@ -59,8 +59,16 @@
 </template>
 
 <style scoped>
-.cont{
-  font-family: 'Times New Roman', Times, serif;
+.botao1{
+  background-color:chartreuse; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 30px;
 }
 .edit{
   font-family: 'Times New Roman', Times, serif;
